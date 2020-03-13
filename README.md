@@ -46,7 +46,7 @@
    `sudo apt install python3-pyqt5.qtwebkit`
 
 2. Install PyQt 5:
-   Follow the guide [link](https://www.learnpyqt.com/installation/ "here")
+   Follow the guide [link](https://www.learnpyqt.com/installation/ )
 
 3. Run the program 
     Windows:
@@ -61,4 +61,4 @@
 
 *CONTRIBUTERS*
 
-1. [ShubhamDixit](https://github.com/sdixit1998 "Shubham Dixit")
+1. [ShubhamDixit](https://github.com/sdixit1998 )
