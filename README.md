@@ -1,6 +1,7 @@
 # New-Feed 
 
 *This software is under development*
+
 ==================================================================
 
 *MODULES*
@@ -38,23 +39,23 @@
 
 *INSTALLATION*
 
-1. Install the following dependencies:
-   `pip3 install google-api-python-client`
+1. Install pip3
 
-   `pip3 install json`
+2. Install the following dependencies:
+  1. `pip3 install google-api-python-client`
+  2. `pip3 install bs4`
+  3. `sudo apt install python3-pyqt5.qtwebkit` (for linux)
 
-   `sudo apt install python3-pyqt5.qtwebkit`
+3. Install PyQt 5:
+   Follow the guide [here](https://www.learnpyqt.com/installation/ )
 
-2. Install PyQt 5:
-   Follow the guide [link](https://www.learnpyqt.com/installation/ )
+4. Run the program
+*Windows*
+  1. Open cmd
+  2. `start path/to/your/pythondirectory/python3 main.py`
 
-3. Run the program 
-    Windows:
-    1. Open cmd
-    2. `start path/to/your/pythondirectory/python3 main.py`
-    
-    Linux:
-    1. `python3 main.py`
+*Linux*
+  1. `python3 main.py`
 
 
 ==================================================================

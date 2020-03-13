@@ -2,7 +2,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import R_Papers as RS
 import News as NW
-import Videos as VD
+#import Videos as VD
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
