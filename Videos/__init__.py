@@ -41,7 +41,7 @@ class YoutubeSearch:
 
 
 def getVideo(query):
-    result = YoutubeSearch(query,max_results=20).to_dict()
+    result = YoutubeSearch(query,max_results=30).to_dict()
     fp = open('Data/Video.html','w+')
     fp.write('<!DOCTYPE html><html><body><h1>Videos</h1><br>')
     for i in result:
