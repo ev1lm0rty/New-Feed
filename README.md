@@ -6,7 +6,7 @@ New-Feed provides a centralized GUI platform
 to search for research papers, videos and news.
 It's distraction free and uses simple text links to display data.
 
-====================================
+
 
 *MODULES*
 ---------------------
@@ -15,7 +15,7 @@ It's distraction free and uses simple text links to display data.
 3. Video Module
 
 
-====================================
+
 
 *Research Paper Module*
 ---------------------
@@ -32,7 +32,7 @@ It's distraction free and uses simple text links to display data.
 2. Get results
 
 
-====================================
+
 
 *INSTALLATION*
 ---------------------
@@ -46,8 +46,9 @@ It's distraction free and uses simple text links to display data.
 4. Run the program
     * `python3 NewFeed.py`
 
-====================================
+
 
 *CONTRIBUTERS*
+---------------------
 
 1. [ShubhamDixit](https://github.com/sdixit1998)
