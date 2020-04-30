@@ -1,43 +1,34 @@
 # New-Feed 
 
---This software is under development--
-
 *ABOUT*
 ---------------------
 New-Feed provides a centralized GUI platform
 to search for research papers, videos and news.
+It's distraction free and uses simple text links to display data.
 
 ====================================
 *MODULES*
 ---------------------
-1. YouTube Channel Module
+1. Research Module
 2. News Module
-3. Research Paper Module
-4. Backup Config Module [Under Development]
+3. Video Module
+
 
 ====================================
-
-*Youtube Module* [Under GUI Development]
+*Research Paper Module*
 ---------------------
-1. Add API key
-2. Add/Remove Channels
-3. View Latest Videos
-4. View Videos
+1. Search for research papers queries.
+2. Get results from websites : ieee.org, scienceopen.
 
 *News Module*
 ---------------------
 1. View News
 
-*Research Paper Module*
+*Video Module* [Under GUI Development]
 ---------------------
-1. Search for research papers
-2. Websites(ieee.org, scienceopen)
+1. Search for Query
+2. Get results
 
-
-*Backup Config Module*[Under Development]
----------------------
-1. Backup config to drive
-2. Settings for all other modules
 
 ====================================
 
@@ -45,11 +36,8 @@ to search for research papers, videos and news.
 
 1. Install pip3
 
-2. Install the following dependencies:
-  1. `pip3 install google-api-python-client`
-  2. `pip3 install bs4`
-  3. `sudo apt install python3-pyqt5.qtwebkit` (for linux)
-  4. `pip install PyQtWebKit` (for windows)
+2. Install the following modules using pip:
+  1. `bs4`
 
 3. Install PyQt 5:
    Follow the guide [here](https://www.learnpyqt.com/installation/ )
@@ -57,13 +45,13 @@ to search for research papers, videos and news.
 4. Run the program
   1. Windows
     * Open cmd
-    * `start path/to/your/python/directory/python3 main.py`
+    * `start path/to/your/python/directory/python3 NewFeed.py`
   2. Linux
     * Open terminal
-    * python3 main.py
+    * `python3 NewFeed.py`
 
 ====================================
 
 *CONTRIBUTERS*
 
-1. [ShubhamDixit](https://github.com/sdixit1998 )
+1. [ShubhamDixit](https://github.com/sdixit1998)

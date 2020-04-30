@@ -5,7 +5,8 @@ import _json
 import requests
 from urllib.parse import urlencode, quote_plus
 
-FILENAME1 = 'Data/res1.html'
+#----------For iee site----------#
+OUTPUT = './Data/ResearchPapers.html'
 URL1 = 'https://ieeexplore.ieee.org/rest/search'
 HEADERS1 = {
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0',
@@ -16,28 +17,8 @@ HEADERS1 = {
     'Connection': 'keep-alive',
     'Cache-Control': 'max-age=0',
 }
-
-def ieeeSite(TOPIC):
-    print("research is called")
-    DATA1 ='{"newsearch":true,"queryText":"'+TOPIC+'","highlight":true,"returnFacets":["ALL"],"returnType":"SEARCH"}'
-    response = requests.post(url = URL1, headers = HEADERS1,  data = DATA1)
-    response=response.json()
-    i=0
-    f = open(FILENAME1,'w+')
-    f.write('<!DOCTYPE html>\n<html>\n<body>\n<h1>Research Papers</h1>\n')   
-    for article in response['records']:
-        i = i+1
-        if i == 10:
-            break;
-        f.write('* '+'<ol><a href="' + 'https://ieeexplore.ieee.org' + article['documentLink'] + '">' + article['articleTitle'] + '</a></ol>')
-        f.write('\n')
-    f.write('\n</body></html>')
-    f.close
-    
-#-----------------------------------------------------------------------------------------------------#
-#--For ScienceOpen site--#
-
-FILENAME2 = 'Data/res2.html'
+#----------For science open site----------#
+FILENAME2 = './Data/ResearchData.json'
 URL2 = 'https://www.scienceopen.com/search-servlet'
 HEADERS2 = {
     'Connection':'keep-alive',
@@ -71,10 +52,37 @@ SUB = {
         "query":"{QUERY}"
         }
 
+f = open(OUTPUT,'w')
+# IEEE #
+def ieeeSite(TOPIC):
+    print("Getting Research: IEEE")
+    DATA1 ='{"newsearch":true,"queryText":"'+TOPIC+'","highlight":true,"returnFacets":["ALL"],"returnType":"SEARCH"}'
+    response = requests.post(url = URL1, headers = HEADERS1,  data = DATA1)
+    response=response.json()
+    i=0
+    f.write('<!DOCTYPE html>\n<html>\n<body>\n<h1>Research Papers</h1>\n<h2>IEEE</h2>')   
+    for article in response['records']:
+        i = i+1
+        if i == 10:
+            break;
+        f.write('<ol><a href="' + 'https://ieeexplore.ieee.org' + article['documentLink'] + '">' + article['articleTitle'] + '</a></ol><br>')
+
+# Sciece open #
+def parseData():
+    fp = open(FILENAME2)
+    obj = json.load(fp)
+    f.write('\n')
+    f.write('<h2>Science Open</h2><br>')
+    for i in obj['result']['results']:
+        f.write(f'<ol><a href={i["_url"]}> {i["_titleSafe"]} </a></ol><br>')
+    f.write('</body></html>')
+
 def scOpen(QUERY):
-    TEST = "q=%7B%22kind%22%3A61%2C%22itemsToGet%22%3A10%2C%22firstItemIndex%22%3A0%2C%22getFacets%22%3Afalse%2C%22getFilters%22%3Atrue%2C%22search%22%3A%7B%22v%22%3A3%2C%22id%22%3A%22%22%2C%22isExactMatch%22%3Atrue%2C%22context%22%3Anull%2C%22kind%22%3A77%2C%22order%22%3A0%2C%22orderLowestFirst%22%3Afalse%2C%22query%22%3A%22{QUERY}%22%2C%22filters%22%3A%5B%7B%22kind%22%3A86%2C%22offset%22%3A1%2C%22timeUnit%22%3A5%2C%22%24timezoneOffset%22%3A-19800000%7D%5D%7D%7D"
+    print("Getting Research: ScienceOpen")
+    TEST = f"q=%7B%22kind%22%3A61%2C%22itemsToGet%22%3A10%2C%22firstItemIndex%22%3A0%2C%22getFacets%22%3Afalse%2C%22getFilters%22%3Atrue%2C%22search%22%3A%7B%22v%22%3A3%2C%22id%22%3A%22%22%2C%22isExactMatch%22%3Atrue%2C%22context%22%3Anull%2C%22kind%22%3A77%2C%22order%22%3A0%2C%22orderLowestFirst%22%3Afalse%2C%22query%22%3A%22{QUERY}%22%2C%22filters%22%3A%5B%7B%22kind%22%3A86%2C%22offset%22%3A1%2C%22timeUnit%22%3A5%2C%22%24timezoneOffset%22%3A-19800000%7D%5D%7D%7D"
     r = requests.post(url = URL2 , headers = HEADERS2 , params = TEST )
-    with open(FILENAME2, "w") as f:
+    with open(FILENAME2, "w") as f2:
         x = r.content.decode()
-        f.write(x)
-        f.close()
+        f2.write(x)
+    parseData()
+    f.close()

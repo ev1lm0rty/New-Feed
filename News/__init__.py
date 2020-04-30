@@ -6,7 +6,7 @@ URL = "https://news.google.com/topics"
 FILENAME = "Data/news.html"
 
 def getNews():
-    print('news was called')
+    print('Getting News from: Google News')
     requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
     r = requests.get(url = URL , verify = False)
     soup = BeautifulSoup(r.content,'html.parser')
